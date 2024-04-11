@@ -1,0 +1,26 @@
+ Enenevi monolit applicationlar 3 hisseden ibaret olur:
+ 1. User Interface (UI)
+ 2. Business Layer (BL)
+ 3. Data Access Layer (DAL)
+
+ Instagrami numune gotursek, biz login ola, post paylasa, like eliye, comment yaza bilirik. Monolit arxitekturada butun bu ve diger proseslerin yuxaridaki 3 layeri bir applicationda toplanir.
+ Microservice arxitekturada ise her bir proses ayri bir applicationda yerlesir. Meselen, login prosesi bir applicationda, post paylasma prosesi bir applicationda, like eliyib goturme prosesi bir applicationda, comment yazma prosesi bir applicationda yerlesir. Her bir application birbiri ile REST API vasitesi ile elaqe qurur. Ve her bir application ozunun database-i ile elaqe qurur ve her biri oz isine cavabdehdir. Burada application yerine microservice sozude istifade oluna biler.
+
+ Monolit arxitekturanin ustunlukleri (benefits):
+ 1. Kodun ve ya resursun idare olunmasi (maintain) asandir, cunki butun kod bir yerde yerlesir.
+ 2. Kodun deploy olunmasi asandir, cunki butun kod bir yerde yerlesir.
+ 3. Monitoring ve logging asandir.
+
+Monolit arxitekturanin dezavantajlari (drawbacks):
+1. Kodun ve ya resursun idare olunmasi (maintain) ve deploy olunmasi (deploy) cox vaxt ve enerji teleb edir, cunki butun kod bir yerde yerlesir.
+2. Kodun ve ya resursun idare olunmasi (maintain) ve deploy olunmasi (deploy) cox risklidir, cunki butun kod bir yerde yerlesir. Meselen, bir bug tapilsa, butun applicationda problem yarada biler.
+
+Microservice arxitekturanin ustunlukleri (benefits):
+1. Bir microservice-da olan bug diger microservice-lara tesir etmez.
+2, Development process cox sadelesir, cunki her bir microservice ozunun isine cavabdehdir.
+3. Yeni texnologiyalara adaptasiya asandir.
+4. Ferqli programming dillere ve frameworklere imkan verir.
+
+Microservice arxitekturanin dezavantajlari (drawbacks):
+1. Monitoring ve logging cetindir.
+2. Performance monolit arxitekturaya gore daha asagidir.

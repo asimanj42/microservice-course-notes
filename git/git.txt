@@ -1,0 +1,33 @@
+Git ozluyunde 2 hisseden ibaretdir: Local ve Remote
+Local repositoryde 3 hisseden ibaretdir: Working directory, Staging area ve Repository
+1. Working directory: Filelarimizi deyisdirdiyimiz, yaratdigimiz yerdir. Bu state-de git filelarimizi izlemir.
+2. Staging area: Bu state-de filelarimiz git terefinden izlenir. Bu state-de etdiyimiz deyisiklere bir ad ve ya tag veririk (commit message).
+3. Repository: Filelarimiz artiq git servere, yeni remote repositorye gonderilmeye hazirdir.
+
+Commands:
+git init: Local repository yaratmaq ucun istifade olunur. Directoryde .git adli gizli bir folder yaradir.
+git add: Filelari staging area-ya elave etmek ucun istifade olunur.
+git commit: Staging area-da olan filelari repositorye commit etmek ucun istifade olunur.
+git push: Local repositoryde olan filelari remote repositorye gondermek ucun istifade olunur.
+git status: Filelarin ve ya deyisikliklerin statusunu gosterir.
+git remote add origin <remote repository url>: Remote repositorye elaqe qurmaq ucun istifade olunur.
+git reset: Filelari staging area-dan working directory-e geri qaytarmaq ucun istifade olunur.
+--set-upstream: Tutaq ki, branch localda var amma remote repositoryde yoxdur. Bu command branchi remote repositorye gondermek ucun istifade olunur.
+git branch: Branchlerin siyahisini gosterir.
+git checkout -b <branch name>: Yeni branch yaratmaq ucun istifade olunur. Yeni branch hansi branchdan yaranibsa, onun contentini goturur.
+git checkout <branch name>: Branchlar arasinda kecid etmek ucun istifade olunur.
+git log: Commitlerin siyahisini gosterir.
+Merge request: Bir branchde olan deyisiklikleri basqa bir branchde birlesdirmek ucun istifade olunur.
+squash: Birden cox commiti birlesdirmek ucun istifade olunur.
+git revert: Bir commiti geri qaytarmaq ucun istifade olunur. Yeni bir revert commiti yaradacaq.
+git branch -d <branch name>: Branchi silmek ucun istifade olunur.
+git pull: Remote repositoryden filelari local repositorye gondermek ucun istifade olunur.
+conflict: Eger iki branchde eyni fileda, eyni line-da deyisiklik olarsa, conflict yaranir. Bu conflictleri hell etmek ucun fileda deyisiklikleri el ile duzeltmek lazimdir.
+git stash: Bir branchda isleyirem, amma commit etmemisem. Basqa brancha kecib islemek isteyirem. Bu zaman islediyim deyisiklikleri stash edirem.
+git stash pop: Stash edilmis deyisiklikleri geri cagirmaq ucun istifade olunur.
+git stash list: Stash edilmis deyisikliklerin siyahisini gosterir.
+git stash drop: Stash edilmis deyisiklikleri silmek ucun istifade olunur.
+HEAD: En son commiti gosterir.
+git cherry-pick <commit id>: Bir commiti basqa bir brancha elave etmek ucun istifade olunur.
+git fetch vs git pull: git fetch remote repositoryden filelari local repositorye gondermir, yalnizca filelari yukleyir. git pull ise filelari yukleyir ve local repositoryde olan filelari remote repositorye gonderir.
+git merge vs git rebase: git merge iki branchi birlesdirir. git rebase ise bir branchin deyisikliklerini basqa bir branchin uzerine qoyur.
