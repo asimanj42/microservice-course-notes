@@ -1,0 +1,21 @@
+Build tool: Java proyekti compile etmek, manage etmeyi avtomatlashtirir. Hemcinin, dependency management, test etmek, paketlemek ve deployment proseslerinde developer ciddi suret qazandirir.
+
+Gradle: Groovy dili ile yazilib. Mavendan suretlidir. Gradleda tasklar yazmaq mumkundur. Tasklar funksiyalar benzeyir.
+
+Gradle phase-lar:
+1. Initialization: Gradle proyekti yukleyir. settings.gradle file ni oxuyur.
+2. Configuration: Proyektin build.gradle file ni oxuyur. Dependencyleri yukleyir.
+3. Execution: Tasklari ve ya run oluna bilen blocklari (doLast, doFirst ve s.) run edir.
+
+build.gradle:
+
+task sayHello {
+        println 'Hello world!'
+}
+
+task sayHi {
+        println 'Hi!'
+}
+
+Meselen, taskin birini run etsek, configuration fazada her iki taskin println funksiyasi ise dusecek. Execution fazada ise sadece run etdiyimiz taskin println funksiyasi gorunecek.
+
