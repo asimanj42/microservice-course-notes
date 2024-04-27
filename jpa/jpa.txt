@@ -1,0 +1,49 @@
+Jpa: qaydalar toplusudur. Muxtelif implementasiyalari var.
+Implementasiyalar muxtelif interfacelerle db ile isleyir.
+Hibernate: Session ve Session factory
+EclipseLink, OpenJpa
+Spring Data Jpa: Entity manager ve Entity manager factory
+Her biri en sonda jdbc ile isleyir.
+
+Update emeliyyatimiz var. Eger update-i transaction daxilince etmesek, deyisiklikler view-a yazilir. Eger hemin database-e basqa connection uzerinden qosulsaq, deyisiklikler gormek olmur. Bunun ucun transaction daxilinde etmek lazimdir.
+
+Relationships:
+1. OneToOne
+2. OneToMany
+3. ManyToOne
+4. ManyToMany
+
+Bidirectional ve Unidirectional olur. Bidirectionalda iki terefde bir birini gormelidir. Unidirectionalda bir terefde bir terefin olmasi lazimdir.
+
+Relation-da mappedBy yazmasaq, yeni table yaradir!!!
+
+Lazy ve eager initialization:
+Default halda, entityManager db-dan datani relationlar olmadan getirir.
+Lazy exceptioni hell etmeyin yollari:
+1. FetchType.EAGER yazmaq
+2. @Transactional yazmaq
+3. @EntityGraph yazmaq
+4. FetchJoin yazmaq
+
+Transactional beledir ki, metod boyu connection aciq qalir. Tutaq ki, adress entity-im var, icinde de user. Adressin icinden getUser() cagirsam, connection aciq qalib deye gedib useri getirir.
+
+n + 1 problemi: Deyek ki, bir userin 10 adressi var. Useri getiririk, sonra her bir adressi ucun 10 defe query atiriq. Optimal query ile qarsisini almaq olar.
+
+Interface projection
+PersistenceContext
+EntityManager
+CascadeTypes
+OrphanRemoval
+
+Entity life cycle:
+1. Transient: Yeni yaradilmis entitydir. Db-de qarsiligi yoxdur. Meselen, new User()
+2. Managed: Persist olunmus entitydir.Persistence context-de movcuddur. Databasede qaarsiligi var.
+3. Detached: Persistence context-den cixib. Uzerinde emeliyyat edilse de, db-de deyisiklik olmur.
+4. Removed: Entity persistenceContext silinib. Db-de de silinir.
+
+Transaction isolation level:
+1. Read_committed: Bir transaction diger transactionin commit etmediyi deyisiklikleri gormur.
+2. Serializable:
+3
+
+

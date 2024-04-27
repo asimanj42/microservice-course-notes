@@ -1,0 +1,7 @@
+Spring framework: Ozunde aop, mvc, jdbc, orm, security kimi modullari birlesdirir. XML based esaslidir.
+Spring boot: XML-deki suret zeifliyini annotationlarla aradan cixardir. Development suretini artirir.
+
+@SpringBootApplication: Spring boot proyektlerinde main class-da yazilir. Bu annotation proyektin baslangicini gosterir. Bu annotationin icinde 3 annotation var: @Configuration, @ComponentScan, @EnableAutoConfiguration
+
+IOC: Inversion of Control: Spring framework beanlari ozu yaradir, onlari application context-de saxlayir ve lazim oldugunda onlari istifade edir.
+DI: Dependency Injection: Spring framework beanlari birbirine inject edir.

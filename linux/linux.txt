@@ -1,0 +1,36 @@
+Commands:
+pwd: Current directoryni gosterir
+ls: file ve directory listini gosterir
+ls -a: Gizli file ve directory listini gosterir
+cd: Directory degistirir
+cd ..: Bir ust directorye cixar
+cd ~: Home directorye gedir
+touch: Yeni file yaradir
+mkdir: Yeni directory yaradir
+mkdir -p: Parent directory ile birlikde yeni directory yaradir
+rm: File silir
+rmdir: Ici bos directory silir
+rm -r: Directory ve icindekileri silir
+cp <source> <destination>: File kopyalar
+mv <source> <destination>: File ya da qovlugu move edir
+mv <oldname> <newname>: File ya da qovlugun adini deyisir
+cat: Filein icindekileri gosterir
+cat > <filename>: File icine yazir. Amma evvelki olanlari silir
+cat >> <filename>: File icine yazir. Evvelki olanlari silmeden yazir
+nano: Filein icinde deyisiklik edir ( save etmek ucun ctrl+O, sonra ctrl + x bas)
+cat <<EOF > <filename>: EOF yazdigimiz yere qeder yazir
+sudo: Super user
+more: Daha boyuk filelerde istifade olunur
+tail: File a son elaveleri gosterir
+echo: Ekrana text yazir
+shutdown: Sistem shutdown edir
+reboot: Sistem yeniden basladir
+hostname: Hostname gosterir
+hostname -I: IP gosterir
+help, man, whatis: Komandalar haqqinda melumat verir
+date: Tarix ve saat gosterir
+history: Komandalarin tarixcesini gosterir
+greb: File icinde axtarir
+clear: terminali temizleyir
+reset: terminali yeniden basladir
+tar: File arxivleyir
