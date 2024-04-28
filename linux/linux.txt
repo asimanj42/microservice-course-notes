@@ -34,3 +34,14 @@ greb: File icinde axtarir
 clear: terminali temizleyir
 reset: terminali yeniden basladir
 tar: File arxivleyir
+
+Linuxda istifadeciler ve gruplar:
+1. root: super userdir, butun komandalarin icra olunmasina icazesi var. /etc/sudoers faylini deyisdirerek diger istifadecilere de super user icazesi verile biler.
+2. sudo: super userin icra etdiyi komandalarin icra olunmasina icazesi olan istifadecidir. Istifadeciye sudo icra etme icazesi vermek ucun /etc/sudoers faylini deyisdirmek lazimdir.
+3. su: userlar arasinda kecid etmek ucun istifade olunur.
+4 passwd: Istifadechi sifresini deyismek ucun istifade olunur.
+    /etc/passwd: Istifadecilerin melumatlarini saxlayir
+    /etc/shadow: Istifadecilerin melumatlarini saxlayir, amma sifreleri hash formada saxlayir. File i oxumaq ucun super user olmaq lazimdir.
+5. adduser: Yeni istifadeci yaradir, userin home directorysi ve groupu da yaradir. userdel komandasi ile sile bilerik.
+6. groupadd: Yeni group yaradir, usermod - aG komandasi ile useri groupa elave ede bilerik.
+        /etc/group: Grouplarin melumatlarini saxlayir
