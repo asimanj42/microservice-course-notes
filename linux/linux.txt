@@ -45,3 +45,31 @@ Linuxda istifadeciler ve gruplar:
 5. adduser: Yeni istifadeci yaradir, userin home directorysi ve groupu da yaradir. userdel komandasi ile sile bilerik.
 6. groupadd: Yeni group yaradir, usermod - aG komandasi ile useri groupa elave ede bilerik.
         /etc/group: Grouplarin melumatlarini saxlayir
+
+File permission:
+1. User: u, Group: g, Others: o
+2. rwx: read, write, execute
+3. File -, Directory d, Link l
+ Meselen:
+    -rwxr-xr-- 1 user user 0 Feb  1 12:00 file.txt
+    1. userin permissionlari: rwx
+    2. groupun permissionlari: r-x
+    3. digerlerinin permissionlari: r--
+    4. filein adi: file.txt
+    5. filein owneri: user
+    6. filein groupu: user
+    7. filein olcusu: 0
+    8. filein yaradilma tarixi: Feb  1 12:00
+    9. filein adi: file.txt
+
+    drwxrwxr-x -> d rwx rwx r-x
+    1. Directory
+    2. User Read, Write, Execute ede biler
+    3. Group Read, Write, Execute ede biler
+    4. Digerleri Read, Execute ede biler, Write ede biler
+
+    Permissionlarin deyisdirilmesi:
+chown: Owneri ve ya groupu deyismek ucun istifade olunur.
+    chown <user>:<group> file.txt
+chgrop: Groupu deyismek ucun istifade olunur.
+    chgrp <group> file.txt
