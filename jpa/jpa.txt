@@ -42,6 +42,12 @@ Entity life cycle:
 4. Removed: Entity persistenceContext silinib. Db-de de silinir. Managed + remove() = removed,, removed + persist() = managed
 
 
+Hibernate Caching:
+Demeli, Metodun basina @Transactional yaziriq. PRIMARY KEY ile datani cagiririq. Ikinci defe eyni parametrlerle sorgu atsaq, db-den yox, cache-den cagiracaq.
+L1 cache (PersistenceContext): EntityManagerin icinde olan cache-dir. EntityManager close olunanda silinir.
+L2 cache: EntityManagerFactory-nin icinde olan cache-dir. EntityManagerFactory close olunanda silinir. EntityManagerFactory-nin icinde EntityManagerler var. EntityManagerFactory-nin icinde olan EntityManagerlerin hamisi eyni cache-i paylasir.
+
+
 Propagation level transactionlarin nece davranacagini gosterir. 7 denedir:
 1. Required: Default propagation leveldir. Eger transaction varsa, onun icerisinde isleyir.
 2. Requires_new: Yeni transaction acir. Eger transaction varsa, onu suspend edir ve onun yerine yeni transaction acir.
