@@ -1,0 +1,19 @@
+Csrf: Tutaq ki, girmisik Amazona.com a nese alis veris edirik. Pis adamlar bize security attack eliyib link yollayir ve bizde hemin linke giririk. Hemin bu linkdeki veb sayt bizim amazondaki hesabimizla amazona request atir.
+Spring Security de csrf default olaraq enable olunub. Yeni her requeste csrf tokeni gonderilir. Eger bu tokeni requestde gondermeseniz, requesti reject edir. Eger bu tokeni requestde gonderirseniz, spring security tokeni yoxlayir ve eger token dogru deyilse requesti reject edir.
+
+401 Unauthorized: Istifadeci sisteme authenticate olmamiyib.
+403 Forbidden: Istifadeci authenticate olub, amma bu resource-a erisimi yoxdur.
+
+Cors: Bir originde isleyen veb appin, basqa bir originde isleyen veb appa request gondermesine izin verir.Web uygulaması, internet tarayıcısı üzerinden farklı bir kökene (protokol, domain ve port) herhangi bir istek gönderirse cross-origin HTTP isteği oluşturmuş olur.
+
+    @GetMapping("/cors")
+    @CrossOrigin(origins = "google.com")
+    public String corsApproved() {
+        return "Hello from CORS API";
+    }
+    Yeni google.com origininden gelen requestlere izin veririk.
+
+hasRole() ve hasAuthority() Spring Security de eyni sayilir, tek ferqi hasRole -> ROLE_USER, hasAuthority -> USER
+
+
+

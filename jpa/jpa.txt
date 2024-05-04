@@ -37,13 +37,30 @@ OrphanRemoval
 
 Entity life cycle:
 1. Transient: Yeni yaradilmis entitydir. Db-de qarsiligi yoxdur. Meselen, new User()
-2. Managed: Persist olunmus entitydir.Persistence context-de movcuddur. Databasede qaarsiligi var.
-3. Detached: Persistence context-den cixib. Uzerinde emeliyyat edilse de, db-de deyisiklik olmur.
-4. Removed: Entity persistenceContext silinib. Db-de de silinir.
+2. Managed: Persist olunmus entitydir.Persistence context-de movcuddur. Databasede qaarsiligi var. transient + persist() = managed
+3. Detached: Persistence context-den cixib. Uzerinde emeliyyat edilse de, db-de deyisiklik olmur. Managed + clear(),detach(),close() = detached ,, detached + merge() = managed
+4. Removed: Entity persistenceContext silinib. Db-de de silinir. Managed + remove() = removed,, removed + persist() = managed
 
-Transaction isolation level:
-1. Read_committed: Bir transaction diger transactionin commit etmediyi deyisiklikleri gormur.
-2. Serializable:
-3
+
+Propagation level transactionlarin nece davranacagini gosterir. 7 denedir:
+1. Required: Default propagation leveldir. Eger transaction varsa, onun icerisinde isleyir.
+2. Requires_new: Yeni transaction acir. Eger transaction varsa, onu suspend edir ve onun yerine yeni transaction acir.
+3. Supports: Eger transaction varsa, onun icerisinde isleyir. Eger yoxdursa, transaction olmadan isleyir.
+4. Not_supported: Eger transaction varsa, onu suspend edir ve transaction olmadan isleyir.
+5. Mandatory: Eger transaction yoxdursa, exception atir. Ozunden evvel transaction olmalidir
+
+
+Transaction isolation level
+Phantom read, dirty read, non-repeatable read bunlar transaction isolation level problemleridir.
+Dirty read: Yanlis datani oxumaq. Transaction1 datani update edir (1999), transaction2 ise oxuyur (1999). Transaction1 rollback ederse, transaction2 yanlis datani, yeni 1999 oxuyur.
+Non-repeatable read: Bir transaction bir datani oxuyur, sonra diger transaction o datani update edir. Ilk transaction ise o datani yeniden oxuyur. Diger transactionin deyisikliklerini gore bilmir.
+Phantom read: Bir transaction bir query edir, sonra diger transaction o queryni update edir. Ilk transaction ise o queryni yeniden edir. Diger transactionin deyisikliklerini gore bilmir. Eyni queryde ferqli datalar cixir.
+
+1. Read_committed: Bir transaction diger transactionin commit etmediyi deyisiklikleri gormur. Meselen, balance 1400den 1300 olub amma commit etmemisem. Diger transaction balance i 1400 gormelidir. (dirty read)
+2. Serializable: Meselen, transactionin biri 1500 u gorub update edir (thread.sleep etmisik, yeni ehele gozleyecek), diger transaction ise sleepsiz balance i update edib 1400 edir. Bu zaman xeta bas verecek, cunki ilk transactionin oxudugu balance ikinci transactionin commit etdiyi balance-den ferqlidir,
+
+
+
+
 
 
