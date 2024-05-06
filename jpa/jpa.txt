@@ -41,11 +41,27 @@ Entity life cycle:
 3. Detached: Persistence context-den cixib. Uzerinde emeliyyat edilse de, db-de deyisiklik olmur. Managed + clear(),detach(),close() = detached ,, detached + merge() = managed
 4. Removed: Entity persistenceContext silinib. Db-de de silinir. Managed + remove() = removed,, removed + persist() = managed
 
+Transaction anlayisi:
+Eger entity db-den getirilib manage moddadirsa, onun uzerinde update aparib save() metodunu cagirmaq lazimsizdir.Cunki, @Transactional yazdigimiz ucun, transaction baslanir ve bitende, entity avtomatik olaraq update olunur.
+Eyni classin daxilinde @Transactional metodu transactional olmayan metoddan cagirsaq, db-de save prosesi getmir. Bu transaction ignore casedir.
+// TODO: CGLIB vs PROXY
+readOnly = true metod daxilinde ancaq read (select) icaze verir. Insert, update, delete etmek olmur.
+
+Java Reference Types:
+1. Strong Reference: App-da OutOfMemoryError bas verse bele yaddasdan silinmir. new keywordu ile yaradilan obyektlerdir.
+2. Weak Reference: Garbage collectorin silmesine izin verir. WeakReference<User> user = new WeakReference<>(new User());
+
+
+
+
+
+
 
 Hibernate Caching:
 Demeli, Metodun basina @Transactional yaziriq. PRIMARY KEY ile datani cagiririq. Ikinci defe eyni parametrlerle sorgu atsaq, db-den yox, cache-den cagiracaq.
 L1 cache (PersistenceContext): EntityManagerin icinde olan cache-dir. EntityManager close olunanda silinir.
 L2 cache: EntityManagerFactory-nin icinde olan cache-dir. EntityManagerFactory close olunanda silinir. EntityManagerFactory-nin icinde EntityManagerler var. EntityManagerFactory-nin icinde olan EntityManagerlerin hamisi eyni cache-i paylasir.
+Entity managerin entityleri db-den getirir ve bu entitylere bir lifecycle teyin edir. Eyni sessiya daxilinde eyni entityni iki defe cagirsaq, ikinci sorguda entity db-den yox, cacheden gelecek (L1 cache)
 
 
 Propagation level transactionlarin nece davranacagini gosterir. 7 denedir:
