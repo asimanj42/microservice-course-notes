@@ -1,0 +1,23 @@
+Unit test: Metodun mentiqini dependencylerden (basqa servisden cagirilan metodlar, mapperlar, repository ve s) azad edib yoxlamaq. Burda neye gore metodun mentiqi deyilir, cunki bizim servislerin en kicik uniti bizim metodlarimizdir.
+Mocklamaq ucun Mockito istifade edirik, testlerimizi ise JUnitde yaziriq.
+Mocking: Metodun cagirilmasi esnasinda onun dependencylerini mock ederek, onlarin gercek deyerlerini qebul etmeyerek, bizim istediyimiz deyerleri qaytaririq.
+
+@ExtendWith(MockitoExtension.class) - Unit testlerimizi yazarken Mockito istifade etmek ucun bu annotationi yaziriq. Test classimiza yeni extension elave edir. JUnit 5 de gelib. JUnit 4 de ise @RunWith(MockitoJUnitRunner.class) yazirdiq.
+
+@Test - Test metodlarimizi yaziriq. Metodlara testin mentiqine uygun adlar veririk.
+
+@BeforeEach - Her bir test metodundan evvel bu metodun ishlemesini istediyimiz kodlari yaziriq. Bu metodlarin ishlemesini her bir test metodundan evvel ishletmek istediyimiz kodlari yaziriq.
+
+Arrange, Act, Assert
+
+@InjectMocks - Test edilen classimizi yaziriq. Bu classin dependencylerini mock edirik.
+
+Test coverage: Yazdigimiz testlerin nece faiz code line i ehate etdiyini gosterir. Test coverage 100% olmalidir.
+
+Eger bir metodun daxilinde exception durumu varsa, onda hem success, hem de exception durumlarini test etmeliyik.
+
+@Autowired annotationi beanler ucun context teleb edir. Unit test zamani ise context ve ya IOC istifade etmirik. Bu sebebden @Autowired annotationi istifade etmirik.
+
+when().thenReturn() mockladigimiz hisseye ozumuzden data otururuk.
+
+
